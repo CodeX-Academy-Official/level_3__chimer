@@ -23,3 +23,11 @@ This project makes use of the technologies listed in [the level 3 pathway](https
 - Jest (for testing)
 - Lodash
 - Firebase
+
+
+### Getting Started
+
+- Clone the repository and install the dependencies using `yarn` or `npm install`.
+- Run `yarn dev` or `npm run dev` to start the dev server.
+- Now you can make changes to the app files and see them reflect in your browser via the url http://localhost:4321 (You can modify the port in the webpack config file).
+- Run `yarn build` or `npm run build` to create an optimized build bundle for deployment to production.
