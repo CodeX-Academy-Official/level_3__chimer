@@ -1,0 +1,18 @@
+$primary-color: aqua;
+$secondary-color: powderblue;
+$btn-height: 40px;
+
+.primary-btn {
+  padding: 4px;
+  border-radius: 4px;
+  border: 0;
+  background-color: $primary-color;
+  color: white;
+  height: $btn-height;
+  font-size: large;
+}
+
+.secondary-btn {
+  background-color: $secondary-color;
+  height: $btn-height;
+}
