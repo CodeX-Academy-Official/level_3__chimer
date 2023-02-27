@@ -1,16 +1,32 @@
 import React from "react";
-import Button from "../../../../components/Button";
-import Input from "../../../../components/Input";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 import "./SignUpForm.scss";
 
 const SignUpForm = () => {
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert("submitted");
+  }
+
   return (
-    <form className="flex flex-col gap-4">
-      {/* TODO: Replace with bootstrap. */}
-      <Input />
-      <Input />
-      <Button variant="primary">Sign Up</Button>
-    </form>
+    <div className="">
+      <Form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" />
+        </Form.Group>
+
+        <Button variant="primary" type="submit">
+          Sign Up
+        </Button>
+      </Form>
+    </div>
   );
 };
 
