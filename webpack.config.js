@@ -9,11 +9,9 @@ module.exports = {
   },
 
   plugins: [
+    new Dotenv(),
     new HtmlWebpackPlugin({
       template: "src/index.html",
-    }),
-    new Dotenv({
-      path: path.resolve(__dirname, ".", ".env"),
     }),
   ],
   devServer: {

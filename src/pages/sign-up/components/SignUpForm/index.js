@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+
+import { authActionsContext } from "../../../../context/auth.context";
 import "./SignUpForm.scss";
 
 const SignUpForm = () => {
-  function handleSubmit(e) {
+  const [formState, setFormState] = useState({
+    email: "",
+    password: "",
+  });
+  const { signUp } = useContext(authActionsContext);
+  async function handleSubmit(e) {
     e.preventDefault();
-    alert("submitted");
+    await signUp(formState.email, formState.password);
+  }
+  function handleChange(e) {
+    const { target: { name, value } } = e;
+    setFormState(prevFormState => ({
+      ...prevFormState,
+      [name]: value,
+    }));
   }
 
   return (
@@ -14,12 +28,26 @@ const SignUpForm = () => {
       <Form className="flex flex-col gap-4" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Control
+            type="email"
+            placeholder="Enter email"
+            onChange={handleChange}
+            name="email"
+            value={formState.email}
+          />
+
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            name="password"
+            onChange={handleChange}
+            value={formState.password}
+          />
+
         </Form.Group>
 
         <Button variant="primary" type="submit">
