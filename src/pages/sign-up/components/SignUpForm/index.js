@@ -2,18 +2,16 @@ import React, { useState, useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-import { authActionsContext } from "../../../../context/auth.context";
 import "./SignUpForm.scss";
 
-const SignUpForm = () => {
+const SignUpForm = ({ onSubmit }) => {
   const [formState, setFormState] = useState({
     email: "",
     password: "",
   });
-  const { signUp } = useContext(authActionsContext);
   async function handleSubmit(e) {
     e.preventDefault();
-    await signUp(formState.email, formState.password);
+    await onSubmit(formState.email, formState.password);
   }
   function handleChange(e) {
     const { target: { name, value } } = e;
