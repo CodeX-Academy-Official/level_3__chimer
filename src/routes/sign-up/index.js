@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import SignUpForm from "./components/SignUpForm";
-import { authActionsContext } from "../../../../context/auth.context";
+import { authActionsContext } from "../../context/auth.context";
 
 const SignUpPage = () => {
   const { signUp } = useContext(authActionsContext);

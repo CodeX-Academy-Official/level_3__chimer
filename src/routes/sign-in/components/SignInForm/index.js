@@ -1,14 +1,15 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-import "./SignUpForm.scss";
+import "../../../sign-up/components/SignUpForm/SignUpForm.scss";
 
-const SignUpForm = ({ onSubmit }) => {
+const SignInForm = ({ onSubmit }) => {
   const [formState, setFormState] = useState({
     email: "",
     password: "",
   });
+
   async function handleSubmit(e) {
     e.preventDefault();
     await onSubmit(formState.email, formState.password);
@@ -54,6 +55,7 @@ const SignUpForm = ({ onSubmit }) => {
       </Form>
     </div>
   );
-};
+}
 
-export default SignUpForm;
+export default SignInForm;
+

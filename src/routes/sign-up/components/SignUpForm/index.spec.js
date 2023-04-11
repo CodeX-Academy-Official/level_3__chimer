@@ -31,6 +31,12 @@ describe("SignUpForm", () => {
     expect(signUpButton).toHaveTextContent("Sign Up");
   });
 
+  it("should display the appropriate fields for sign up", () => {
+    const { passwordInput, emailInput } = renderSignUpForm();
+    expect(passwordInput).toBeInTheDocument();
+    expect(emailInput).toBeInTheDocument()
+  });
+
   it("should call the sign up method with the formState parameters when the sign up button is clicked", async () => {
     const {
       signUpButton,
